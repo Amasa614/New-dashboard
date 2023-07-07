@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>beyondhealth</title>
+    <link rel="icon" type="image/x-icon" href="/html/images/image-removebg-preview (2).png">
+    <link rel="stylesheet" href="html\styles\style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+    <style>
+        html,
+        body,
+        .parent-element {
+            height: 100%;
+        }
+
+        .btn-custom {
+            background-color: #086972;
+            /* Replace with your desired color */
+            border-color: #086972;
+            /* Replace with your desired color */
+            color: #ffffff;
+            /* Replace with your desired text color */
+        }
+
+        .btn-custom-1 {
+            background-color: #F1F7F6;
+            /* Replace with your desired color */
+            color: #086972;
+            /* Replace with your desired text color */
+        }
+
+        .btn-custom:hover {
+            background-color: #053B40;
+            /* Same as background-color above */
+            border-color: #053B40;
+            /* Same as border-color above */
+            color: white;
+            /* Same as color above */
+        }
+
+        .btn-custom-outline {
+            border-radius: 6px;
+            border-color: #053B40;
+            background-color: white;
+        }
+
+        .btn-custom-outline:hover {
+            background-color: #086972;
+            color: white;
+
+        }
+
+        .custom-active {
+            background-color: #086972;
+            /* Replace with your desired color */
+            border-color: #086972;
+            /* Replace with your desired color */
+            color: #ffffff;
+            /* Replace with your desired text color */
+
+        }
+
+
+        .custom-navbar {
+            background-color: #ffffff;
+            /* Replace with your desired color */
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-shadow {
+            box-shadow: 0px 0.5px 6px rgba(97, 96, 96, 0.4);
+        }
+
+        .navbar {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            height: 56px;
+            position: fixed;
+            top: 0;
+            z-index: 100;
+        }
+
+        .card {
+            max-width: 17rem;
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .note {
+            text-align: left;
+            font-size: 13px;
+            width: 900px;
+            color: grey;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 56px;
+            background-color: white;
+            min-height: calc(100vh - 56px);
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
+            width: 200px;
+        }
+
+        .examples {
+            align-items: center;
+            padding: 0px;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .example-1 {
+            padding: 10px;
+            border-radius: 4px;
+            background: #F5F5F5;
+            color: black;
+            width: auto;
+            text-align: center;
+        }
+
+        .nav-link:hover {
+            background-color: #086972;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            color: white;
+        }
+
+        .nav-link-1{
+            text-decoration: none;
+        }
+
+        .main-body {
+            min-height: 100vh;
+        }
+
+        .buttons-sec {
+  display: flex;
+}
+
+.button-container {
+  margin-right: 8px;
+}
+
+    </style>
+
+</head>
+
+<div id="root" class="light-mode">
+    <script src="/Dashboard/dashboard.js"></script>
+    <nav class="navbar navbar-expand-lg fixed-top sticky-top custom-navbar">
+        <div class="container">
+            <a href="#" class="navbar-brand"> <img src="/html/images/image-removebg-preview (1).png" width="150px"
+                    alt="logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-toggle="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                    <div class="dropdown">
+                        <a href="#"
+                            class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://github.com/mdo.png" alt="" width="32" height="32"
+                                class="rounded-circle me-2">
+                            <strong>Jeffery Crentsil</strong>
+                        </a>
+                        <ul class="dropdown-menu text-small shadow">
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        </ul>
+                    </div>
+                </ul>
+            </div>
+    </nav>
+    <div class="container-fluid min-height-100">
+        <div class="row">
+            <div class="col-md-2 p-0">
+                <div class="sidebar d-flex flex-column position-fixed">
+                    <ul class="nav flex-column mb-auto mt-3 p-md-4">
+                      <li class="nav-item">
+                      </li>
+                      <li>
+                        <a href="#" class="nav-link link-body-emphasis">
+                          <i class="bi bi-robot me-2"></i>
+                          Clinical AI
+                        </a>
+                      </li>
+                    </ul>
+                    <div class="form-check form-switch ms-4">
+                        <input class="form-check-input" type="checkbox" id="darkModeToggle">
+                        <label class="form-check-label" for="darkModeToggle">Dark Mode</label>
+                      </div>
+                    <hr>
+                    <a href="#" class="nav-link-1 link-body-emphasis mt-0 mb-3 p-md-4" data-bs-toggle="modal"
+                      data-bs-target="#feedbackModal">
+                      <i class="bi bi-megaphone me-2"></i>
+                      Submit Feedback
+                    </a>
+                  </div>
+                  
+                <!-- Feedback Modal -->
+                <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="feedbackModalLabel">Let us Know What You Think</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="https://submit-form.com/RoPujElM">
+                                    <div class="mb-3">
+                                      <label for="name" class="form-label">Name</label>
+                                      <input type="text" id="name" name="name" class="form-control" placeholder="Name" required="">
+                                    </div>
+                                    <div class="mb-3">
+                                      <label for="email" class="form-label">Email</label>
+                                      <input type="email" id="email" name="email" class="form-control" placeholder="Email" required="">
+                                    </div>
+                                    <div class="mb-3">
+                                      <label for="message" class="form-label">Message</label>
+                                      <textarea id="message" name="message" class="form-control" placeholder="Message" required=""></textarea>
+                                    </div>
+                                    <div class="d-grid">
+                                      <button type="submit" class="btn btn-custom btn-lg">Send</button>
+                                    </div>
+                                  </form>                                  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 mt-2 p-md-4">
+                <div class="main-body">
+                    <div class="text-area">
+                        <div class="note mt-5 mb-4">
+                            <p>Welcome to BeyondHealth AI! Our platform utilizes diagnostic one-liners to provide
+                                accurate healthcare solutions. We analyze relevant demographics, history, symptoms, and
+                                test results to generate precise recommendations. Please avoid abbreviations. Clinical
+                                AI, our experimental feature, uses advanced AI to draft differential diagnoses or
+                                clinical plans. Remember, AI output should be interpreted carefully and never replace
+                                professional judgment.</p>
+                        </div>
+                        <div class="input-instruction mb-2">
+                            <p>Enter a clinical problem representation below to generate either a DDx or clinical plan.
+                            </p>
+                        </div>
+                        <div class="input-area">
+                            <div class="examples">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <p class="mb-3">Try an example:</p>
+                                    </div>
+                                    <div class="col">
+                                        <div class="row g-2">
+                                            <div class="col">
+                                                <div class="example-1">Chest Pain DDx</div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="example-1">ADHF Clinical plan</div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="example-1">AMS DDx</div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="example-1">ACS Clinical plan </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="input-header mt-4">
+                                <p>Main complaint</p>
+                            </div>
+                            <textarea class="form-control" id="myInput" placeholder="Type here"></textarea>
+                            <div class="buttons mt-3">
+                                <button class="btn btn-custom" id="differential">Differential diagnosis</button>
+                                <button class="btn btn-custom-outline" id="clinical">Clinical plan</button>
+                                <button class="btn btn-custom-1" id="submit" onclick="generateResults()">Generate <i
+                                        class="bi bi-robot"></i></button>
+                            </div>
+                            <div class="output-container mt-4">
+                                <p id="myOutput" class="text-left" style="line-height: 1.4; padding: 4px;"></p>
+                                <div class="buttons-sec mt-3">
+                                    <div class="button-container">
+                                      <button class="btn btn-custom" id="downloadPdf" style="display: none;">Download PDF</button>
+                                    </div>
+                                    <div class="button-container">
+                                      <button class="btn btn-custom-1" id="copy" style="display: none;">Copy</button>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="note mb-2 mt-4">
+                        <p>Note: BeyondHealth AI is an advanced tool under development for healthcare professionals and
+                            medical researchers. It is not intended for general use or to provide medical advice. Its
+                            purpose is to assist trained professionals in generating accurate diagnoses, treatment
+                            plans, and conducting medical research.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
