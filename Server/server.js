@@ -1,11 +1,17 @@
+require('dotenv').config();
+
 const express = require('express');
 const path = require('path');
 const https = require('https');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000; // Use environment variable or fallback to port 3000
 
-app.use(express.json());
+const API_KEY = process.env.OPENAI_API_KEY; // Use environment variable for the OpenAI API key
+
+const httpsAgent = new https.Agent(); // Create a reusable HTTPS agent
+
+app.use(express.json({ limit: '1mb' })); // Limit JSON request size to 1MB
 
 // Serve static files from the "Dashboard" directory
 app.use(express.static(path.join(__dirname, '..', 'Dashboard')));
@@ -20,14 +26,13 @@ app.post('/api/generate-results', (req, res) => {
   try {
     const { inputText } = req.body;
 
-    const API_KEY = ""; 
-
     const options = {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${API_KEY}`,
         'Content-Type': 'application/json'
-      }
+      },
+      agent: httpsAgent // Reuse the HTTPS agent
     };
 
     const requestData = {
@@ -62,7 +67,7 @@ app.post('/api/generate-results', (req, res) => {
   }
 });
 
-// Error handler middleware
+// Custom error handler middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ error: 'Internal Server Error' });

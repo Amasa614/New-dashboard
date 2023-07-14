@@ -146,6 +146,9 @@
 .button-container {
   margin-right: 8px;
 }
+ul {
+  list-style: disc;
+}
 
     </style>
 
@@ -344,7 +347,7 @@
     let prompt = '';
 
     if (selectedMode === 'differential') {
-      prompt = `Write a detailed Differential diagnosis and include 3 real medical references for: ${inputText}`;
+      prompt = `Write a detailed differential diagnosis,add a diagnosis confidence score to the begining of each diagnosis and include 2 real medical references for: ${inputText}`;
     } else if (selectedMode === 'clinical') {
       prompt = `Write a detailed clinical plan for ${inputText}`;
     } else {
@@ -435,6 +438,7 @@
     }
   });
 });
+
   </script>
 
 </body>
