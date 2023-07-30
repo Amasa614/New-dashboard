@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const https = require('https');
-
+const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 3000; // Use environment variable or fallback to port 3000
 
@@ -12,6 +12,7 @@ const API_KEY = process.env.OPENAI_API_KEY; // Use environment variable for the 
 const httpsAgent = new https.Agent(); // Create a reusable HTTPS agent
 
 app.use(express.json({ limit: '1mb' })); // Limit JSON request size to 1MB
+app.use(cors());
 
 // Serve static files from the "Dashboard" directory
 app.use(express.static(path.join(__dirname, '..', 'Dashboard')));
@@ -49,7 +50,11 @@ app.post('/api/generate-results', (req, res) => {
       });
       response.on('end', () => {
         const responseData = JSON.parse(data);
-        const generatedOutput = responseData.choices[0].message.content;
+        const choices = responseData.choices
+        let generatedOutput = '';
+        if(choices != undefined && choices.length > 0){
+          generatedOutput = choices[0].message.content;
+        }
         res.json({ output: generatedOutput });
       });
     });

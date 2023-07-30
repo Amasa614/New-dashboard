@@ -41,7 +41,11 @@ function generateResults() {
     })
   };
 
-  outputText.textContent = '';
+ 
+  if(outputText){
+    outputText.textContent = '';
+  }
+
   startLoading();
 
   fetch(API_URL, requestOptions)
@@ -72,7 +76,9 @@ function formatOutput(output) {
   return output;
 }
 
-submitButton.onclick = generateResults;
+if(submitButton){
+  submitButton.onclick = generateResults;
+}
 
 differentialButton.addEventListener('click', () => {
   selectedMode = 'differential';

@@ -155,7 +155,6 @@ ul {
 </head>
 
 <div id="root" class="light-mode">
-    <script src="/Dashboard/dashboard.js"></script>
     <nav class="navbar navbar-expand-lg fixed-top sticky-top custom-navbar">
         <div class="container">
           <a href="#" class="navbar-brand"> <img src="/images/image-removebg-preview (1).png" width="150px"
@@ -318,7 +317,7 @@ ul {
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="/Dashboard/dashboard.js"></script>
+  <script src="./dashboard.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
   const API_URL = "http://localhost:3000/api/generate-results";
@@ -364,7 +363,10 @@ ul {
       })
     };
 
-    outputText.textContent = '';
+    if(outputText){
+      outputText.textContent = '';
+    }
+
     startLoading();
 
     fetch(API_URL, requestOptions)
