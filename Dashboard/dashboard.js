@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/api/generate-results";
+const API_URL = "https://beyond.onlysly.com/api/generate-results";
 const submitButton = document.querySelector('#submit');
 const outputText = document.getElementById('myOutput');
 const differentialButton = document.querySelector('#differential');
