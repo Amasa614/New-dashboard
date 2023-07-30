@@ -1,4 +1,4 @@
-const API_URL = "https://beyond.onlysly.com/api/generate-results";
+const API_URL = "http://localhost:3000/api/generate-results";
 const submitButton = document.querySelector('#submit');
 const outputText = document.getElementById('myOutput');
 const differentialButton = document.querySelector('#differential');
@@ -41,7 +41,11 @@ function generateResults() {
     })
   };
 
-  outputText.textContent = '';
+ 
+  if(outputText){
+    outputText.textContent = '';
+  }
+
   startLoading();
 
   fetch(API_URL, requestOptions)
@@ -72,7 +76,9 @@ function formatOutput(output) {
   return output;
 }
 
-submitButton.onclick = generateResults;
+if(submitButton){
+  submitButton.onclick = generateResults;
+}
 
 differentialButton.addEventListener('click', () => {
   selectedMode = 'differential';

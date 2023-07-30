@@ -155,7 +155,6 @@ ul {
 </head>
 
 <div id="root" class="light-mode">
-    <script src="/Dashboard/dashboard.js"></script>
     <nav class="navbar navbar-expand-lg fixed-top sticky-top custom-navbar">
         <div class="container">
             <a href="#" class="navbar-brand"> <img src="/html/images/image-removebg-preview (1).png" width="150px"
@@ -321,7 +320,7 @@ ul {
   <script src="/Dashboard/dashboard.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-  const API_URL = "https://beyond.onlysly.com/api/generate-results";
+  const API_URL = "http://localhost:3000/api/generate-results";
   const submitButton = document.querySelector('#submit');
   const outputText = document.getElementById('myOutput');
   const differentialButton = document.querySelector('#differential');
@@ -364,7 +363,10 @@ ul {
       })
     };
 
-    outputText.textContent = '';
+    if(outputText){
+      outputText.textContent = '';
+    }
+
     startLoading();
 
     fetch(API_URL, requestOptions)
